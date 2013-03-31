@@ -1,5 +1,9 @@
 SaveMoney::Application.routes.draw do
-  resources :savings
+  resources :savings do
+    collection do
+      get 'send_mail'
+    end
+  end
 
 
   # The priority is based upon order of creation:

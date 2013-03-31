@@ -81,4 +81,10 @@ class SavingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def send_mail
+    Message.notice.deliver
+    redirect_to action: :index
+
+  end
 end
