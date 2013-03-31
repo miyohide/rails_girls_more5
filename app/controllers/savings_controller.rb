@@ -3,6 +3,7 @@ class SavingsController < ApplicationController
   # GET /savings.json
   def index
     @savings = Saving.all
+    @sum = Saving.sum
 
     respond_to do |format|
       format.html # index.html.erb
