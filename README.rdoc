@@ -27,15 +27,14 @@
     $ got commit -m "initial commit"
 
 7. index画面に貯金額の合計を出す。
-    ViewでもControllerでもModelでも好きなところにかけるんですが、Modelに
-    書くのがBest Practice。
+
+ViewでもControllerでもModelでも好きなところにかけるんですが、Modelに書くのがBest Practice。
 
     app/models/saving.rbに合計を求める処理を実装。
 
 8. どうやって合計を求める？
-    ControllerのindexアクションでSaving.allっていうのがあったよね。
-    あれでsavingsテーブルにあるすべてのレコードを取得出来ます。
-    そこから一件一件取り出すには？→eachを使う。
+
+ControllerのindexアクションでSaving.allっていうのがあったよね。あれでsavingsテーブルにあるすべてのレコードを取得出来ます。そこから一件一件取り出すには？→eachを使う。
 
     sum = 0
     Saving.all.each do |saving|
@@ -43,15 +42,17 @@
     end
     sum
 
-    （追記）上のプログラムはもっと短い書き方ができるのでチャレンジ。
+（追記）上のプログラムはもっと短い書き方ができるのでチャレンジ。
 
 9. Controllerでsumメソッドを呼び出し、それを@sumに格納する。
 
 10. viewで@sumを参照すると、合計額を出すことができる。
 
 11. メール送信したい。
-    Googleで検索すると、分かりやすそうなサイトを発見（ http://morizyun.github.com/blog/action-mailer-rails-mail/ ）。ここを参考に。
-    メール送信するためのクラスなどを作成する。
+
+Googleで検索すると、分かりやすそうなサイトを発見（ http://morizyun.github.com/blog/action-mailer-rails-mail/ ）。ここを参考に。
+
+メール送信するためのクラスなどを作成する。
 
     $ rails g mailer message notice
 
@@ -71,29 +72,33 @@
       end
 
 16. TemplateMissingがでた〜
-      次の画面を指示する。
+
+次の画面を指示する。
 
       def send_mail
         Message.notice.deliver
         redirect_to action: :index
       end
 
+（追記）メールの確認は、consoleで流れるものを見てもいいけど、MailCatcher（http://mailcatcher.me/）を試してもいいかも。
+
 17. Hashの書き方
-      これらは全部一緒
+
+これらは全部一緒
 
         :action => "index"
         :action => :index
         action: :index
 
-      シンボルと文字列の違いはここを見ると良いかも。（ http://d.hatena.ne.jp/zariganitosh/20061118/1163851550 ）
-
-== Getting Started
+シンボルと文字列の違いはここを見ると良いかも。（ http://d.hatena.ne.jp/zariganitosh/20061118/1163851550 ）
 
 18. メールリンクの作成
-      viewでmail_toを使うとOK
+
+viewでmail_toを使うとOK
 
 19. CSSでかっちょよくしたい。
-      Foundationのインストール。ここを参考に。（http://foundation.zurb.com/docs/rails.html ）
+
+Foundationのインストール。ここを参考に。（http://foundation.zurb.com/docs/rails.html ）
 
 20. インストール
 
