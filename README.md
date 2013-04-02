@@ -110,7 +110,7 @@ savingsのルートに対して、send_mailというルートを追加する。
         redirect_to action: :index
       end
 
-** （追記）メールの確認は、consoleで流れるものを見てもいいけど、[MailCatcher](http://mailcatcher.me/ "MailCatcher")を試してもいいかも。 **
+**（追記）メールの確認は、consoleで流れるものを見てもいいけど、[MailCatcher](http://mailcatcher.me/ "MailCatcher")を試してもいいかも。**
 
 ## 17. Hashの書き方
 
